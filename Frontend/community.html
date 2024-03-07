@@ -7,116 +7,182 @@
     <title>CarRole - Community</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
-        .car-type-icons {
-            display: flex;
-            /* This will display the child elements (car-image-container divs) in a row */
-            justify-content: center;
-            /* This will horizontally center the images in the container */
-            align-items: center;
-            /* This will vertically center the images in the container */
-            gap: 10px;
-            /* This will create a gap between the images */
+        /* Main content grid layout */
+        body {
+            margin: 0;
+            padding: 0;
         }
 
-        .car-image-container {
-            width: 100px;
-            /* Fixed width */
-            height: auto;
-            /* Fixed height */
-            display: flex;
-            /* Use flexbox to center the image */
-            align-items: center;
-            /* Center image vertically */
-            justify-content: center;
-            /* Censter image horizontally */
-            overflow: hidden;
-            /* Hide overflow to maintain container size */
-            flex-direction: column;
-            /* Stacks items vertically */
-            /* margin: 0 10px; */
+        #wrapper {
+            max-width: 1200px; /* Or whatever maximum width you prefer */
+            margin: 0 auto; /* Centers the wrapper */
+            padding: 20px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .car-image {
-            max-width: 50%;
-            /* Maximum width is the size of the container */
-            max-height: 50%;
-            /* Maximum height is the size of the container */
-            display: block;
-            /* Remove any extra space below the image */
-            object-fit: contain;
-            /* Make sure the image is contained within the container without distortion */
+        @media (min-width: 768px) {
+        /* Layout for larger screens */
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+            }
+        }
+        /* Car cards section and container */
+        .car-cards-section {
+            padding: 20px;
         }
 
-        .car-tag {
-            margin-top: 4px;
-            /* Space between image and tag */
-            font-size: 14px;
-            /* Text size, adjust as needed */
+        .car-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px; /* Restrict the maximum width of the grid */
+            margin: 0 auto; /* Centering the grid in the section */
+        }
+
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
             text-align: center;
-            /* Ensures the text is centered */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            max-width: 100%; /* Maximum width of each card */
+            margin: 0 auto; /* Center each card within the grid column */
+        }
+        .car-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-
-        .search-section h2 {
-            padding-top: 20px;
-            border-top: 2px dashed #ccc;
-            /* Dashed line above section titles */
-            margin-top: 20px;
-            /* Space above the dashed line */
+        .car-logo {
+            margin-bottom: 10px;
+            width: auto; /* Adjust the size as needed */
+            height: 100px
         }
 
-        .search-section h2:first-of-type {
-            border-top: none;
-            /* No border for the first title */
-            padding-top: 0;
-            margin-top: 0;
+        .car-name, .car-model {
+            margin: 5px 0;
         }
 
-        input[type="range"] {
-            width: 100%;
-            /* Full width */
-            height: 25px;
-            /* Larger height for better visibility */
-            background: #ddd;
-            /* Background color for the slider */
+        .car-price {
+            margin: 10px 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .view-button {
+            margin-top: auto; /* Pushes the button to the bottom */
+            padding: 1px 1px;
+            background-color: #f0ad4e;
+            color: white;
+            border: none;
             cursor: pointer;
-            /* Cursor appears as a pointer */
         }
 
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            /* Removes default webkit styles */
-            appearance: none;
-            width: 25px;
-            /* Width of the thumb */
-            height: 25px;
-            /* Height of the thumb */
-            background: #428bca;
-            /* Thumb background color */
+        /* Example pagination styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 20px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        .pagination a.active {
+            background-color: #f0ad4e;
+            color: white;
+        }
+
+        .pagination a:hover {
+            border-color: #f0ad4e;
+        }
+        .post-snippet {
+            background-color: white; /* Set the background color to white */
+            padding: 20px; /* Add padding inside the container */
+            margin-bottom: 20px; /* Add space between post snippets */
+            border-radius: 5px; /* Optional: Adds rounded corners to the container */
+        }
+
+        /* Ensure that the overall posts section has a consistent background if needed */
+        .posts-section {
+            background-color: #f5f5f5; /* Light grey background for the whole section */
+            padding: 20px;
+            margin-bottom: 20px; /* Space below the entire section */
+        }
+
+        .post {
+            background: #FFF;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px;
+            padding: 15px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .user-avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .user-info {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .timestamp {
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .follow-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
             cursor: pointer;
-            /* Cursor appears as a pointer */
         }
 
+        .post-content {
+            margin-bottom: 15px;
+        }
 
-        input[type="range"]::-moz-range-thumb {
-            width: 25px;
-            /* Width of the thumb */
-            height: 25px;
-            /* Height of the thumb */
-            background: #428bca;
-            /* Thumb background color */
+        .post-footer {
+            font-size: 0.8em;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .likes, .comments, .bookmark {
             cursor: pointer;
-            /* Cursor appears as a pointer */
         }
 
-        .search-button {
-            width: 100%;
-            /* Full width of its container */
-            padding: 10px 0;
-            /* Padding for a larger button */
-            margin-top: 10px;
-            /* Margin above the button */
-        }
+
     </style>
 </head>
 
@@ -124,118 +190,207 @@
 
     <!-- Wrapper -->
     <div id="wrapper">
-
-        <!-- Header -->
-        <header id="header">
-            <h1><a href="index.html">CarRole</a></h1>
-            <nav class="links">
-                <ul>
-                    <li class="active"><a href="vehicle.html">Vehicle</a></li>
-                    <li><a href="comparison.html">Comparison</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="rplan.html">RPlan</a></li>
-                </ul>
-            </nav>
-            <nav class="main">
-                <ul>
-                    <li class="search">
-                        <a class="fa-search" href="#search">Search</a>
-                        <form id="search" method="get" action="#">
-                            <input type="text" name="query" placeholder="Search" />
-                        </form>
-                    </li>
-                    <li class="menu">
-                        <a class="fa-bars" href="#menu">Menu</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
         <!-- Main -->
         <div id="main">
-            <section class="search-section">
-                <h2>Search by Type</h2>
-                <div class="car-type-icons">
-                    <div class="car-image-container">
-                        <img src="images/ev.png" alt="EV" class="car-image">
-                        <span class="car-tag">EV</span>
+            <div class="content-grid">
+                <section class="vehicles-display-section">
+                    <h2>Featured Vehicles</h2>   
+                    <section class="car-cards-section">
+                       <!-- Car Cards Container -->
+                        <div class="car-cards-container">
+                            <!-- Repeat this block for each car card -->
+                            <div class="car-card">
+                                <img src="images/Card1.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">LAMBORGHINI</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            <!-- ... Other car cards ... -->
+                            <div class="car-card">
+                                <img src="images/Card1.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">LAMBORGHINI</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            <div class="car-card">
+                                <img src="images/Card1.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">LAMBORGHINI</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            <div class="car-card">
+                                <img src="images/Card1.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">LAMBORGHINI</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            <div class="car-card">
+                                <img src="images/card1.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">LAMBORGHINI</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            <div class="car-card">
+                                <img src="images/card2.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">LAMBORGHINI</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            <div class="car-card">
+                                <img src="images/card3.jpg" alt="Car Logo" class="car-logo">
+                                <div class="car-details">
+                                    <h3 class="car-name">Benz</h3>
+                                    <p class="car-model">COMMUNITY</p>
+                                    <p class="car-price">Starting at $XX,XXX</p>
+                                    <button class="view-button">View</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <a href="#" aria-label="Previous page">&laquo;</a>
+                            <!-- Repeat for each page number you want to show -->
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <!-- ... -->
+                            <a href="#" aria-label="Next page">&raquo;</a>
+                        </div>
+                    </section>
+    
+                    <!-- Community Posts Section -->
+                <section class="posts-section">
+                    <div class="post">
+                        <header>
+                            <div class="title">
+                                <h2>Posts</h2>
+                        </header>
+                        <div class="post-snippet">
+                            <div class="post-metadata">
+                                <div class="post">
+                                    <div class="post-header">
+                                        <img src="images/avatar1.png" alt="User Avatar" class="user-avatar">
+                                        <div class="user-info">
+                                            <div class="username">USER12345</div>
+                                            <div class="timestamp">March 6, 2024</div>
+                                        </div>
+                                        <button class="follow-button">+ Follow</button>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
+                                    </div>
+                                    <div class="post-footer">
+                                        <span class="likes">201 likes</span>
+                                        <span class="comments">34 comments</span>
+                                        <span class="bookmark">Bookmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="post-snippet">
+                            <div class="post-metadata">
+                                <div class="post">
+                                    <div class="post-header">
+                                        <img src="images/avatar2.png" alt="User Avatar" class="user-avatar">
+                                        <div class="user-info">
+                                            <div class="username">USER12345</div>
+                                            <div class="timestamp">March 6, 2024</div>
+                                        </div>
+                                        <button class="follow-button">+ Follow</button>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
+                                    </div>
+                                    <div class="post-footer">
+                                        <span class="likes">201 likes</span>
+                                        <span class="comments">34 comments</span>
+                                        <span class="bookmark">Bookmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                        <div class="post-snippet">
+                            <div class="post-metadata">
+                                <div class="post">
+                                    <div class="post-header">
+                                        <img src="images/avatar3.png" alt="User Avatar" class="user-avatar">
+                                        <div class="user-info">
+                                            <div class="username">USER12345</div>
+                                            <div class="timestamp">March 6, 2024</div>
+                                        </div>
+                                        <button class="follow-button">+ Follow</button>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
+                                    </div>
+                                    <div class="post-footer">
+                                        <span class="likes">201 likes</span>
+                                        <span class="comments">34 comments</span>
+                                        <span class="bookmark">Bookmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="post-snippet">
+                            <div class="post-metadata">
+                                <div class="post">
+                                    <div class="post-header">
+                                        <img src="images/avatar4.png" alt="User Avatar" class="user-avatar">
+                                        <div class="user-info">
+                                            <div class="username">USER12345</div>
+                                            <div class="timestamp">March 6, 2024</div>
+                                        </div>
+                                        <button class="follow-button">+ Follow</button>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
+                                    </div>
+                                    <div class="post-footer">
+                                        <span class="likes">201 likes</span>
+                                        <span class="comments">34 comments</span>
+                                        <span class="bookmark">Bookmark</span>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                        </div>
+                    <!-- Repeat the above block for additional posts -->
+                    <!-- <div class="load-more-container">
+                        <a href="#" class="button large">Load More</a>
+                    </div> -->
+                    <div class="pagination">
+                        <a href="#" aria-label="Previous page">&laquo;</a>
+                        <!-- Repeat for each page number you want to show -->
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <!-- ... -->
+                        <a href="#" aria-label="Next page">&raquo;</a>
                     </div>
-                    <div class="car-image-container">
-                        <img src="images/sedan.png" alt="Sedan" class="car-image">
-                        <span class="car-tag">Sedan</span>
-                    </div>
-                    <div class="car-image-container">
-                        <img src="images/suv.png" alt="SUV" class="car-image">
-                        <span class="car-tag">SUV</span>
-                    </div>
-                    <div class="car-image-container">
-                        <img src="images/truck.png" alt="Truck" class="car-image">
-                        <span class="car-tag">Truck</span>
-                    </div>
-                    <div class="car-image-container">
-                        <img src="images/convertible.png" alt="convertible" class="car-image">
-                        <span class="car-tag">Convertible</span>
-                    </div>
-                    <div class="car-image-container">
-                        <img src="images/hatchback.png" alt="hatchback" class="car-image">
-                        <span class="car-tag">Hatchback</span>
-                    </div>
-                    <div class="car-image-container">
-                        <img src="images/van.png" alt="van" class="car-image">
-                        <span class="car-tag">Van</span>
-                    </div>
-                    <div class="car-image-container">
-                        <img src="images/wagon.png" alt="wagon" class="car-image">
-                        <span class="car-tag">Wagon</span>
-                    </div>
-                </div>
-
-                <h2>Search by Brand</h2>
-                <div>
-                    <select class="dropdown">
-                        <option>All Makers</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="ford">Ford</option>
-                        <option value="honda">Honda</option>
-                        <option value="chevrolet">Chevrolet</option>
-
-                    </select>
-                    <select class="dropdown">
-                        <option>All Models</option>
-                        <option value="camry">Camry</option>
-                        <option value="civic">Civic</option>
-                        <option value="silverado">Silverado</option>
-                        <option value="accord">Accord</option>
-                    </select>
-                    <select class="dropdown">
-                        <option>Trim</option>
-                        <option value="base">Base</option>
-                        <option value="sport">Sport</option>
-                        <option value="lx">LX</option>
-                        <option value="ex">EX</option>
-                    </select>
-                </div>
-
-                <h2>Search by Preference</h2>
-                <div class="search-preferences">
-                    <div>
-                        <label for="price-from">Price ($)</label>
-                        <input type="number" id="price-from" placeholder="From" min="0" value="0"
-                            oninput="updatePriceRange()"> to
-                        <input type="number" id="price-to" placeholder="To" min="0" value="100000"
-                            oninput="updatePriceRange()">
-                    </div>
-
-                    <div>
-                        <label for="mileage">Mileage (miles)</label>
-                        <input type="range" id="mileage" name="mileage" min="0" max="100000" value="0"
-                            oninput="updateMileageDisplay()">
-                        <span id="mileageDisplay">0 miles</span>
-
-                    </div>
-
-                    <button class="search-button">Search</button>
-                </div>
+                </section>
 
             </section>
         </div>
@@ -250,25 +405,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <script>
-        // This function updates the displayed mileage value as the slider is moved
-        document.getElementById('mileage').addEventListener('input', function () {
-            document.getElementById('mileageDisplay').textContent = this.value + ' miles';
-        });
-
-        // This function ensures that the "From" price is not greater than the "To" price
-        function validatePrice() {
-            var fromPrice = document.getElementById('price-from');
-            var toPrice = document.getElementById('price-to');
-            if (parseInt(fromPrice.value) > parseInt(toPrice.value)) {
-                fromPrice.value = toPrice.value;
-            }
-        }
-
-        // Add event listeners to the price inputs
-        document.getElementById('price-from').addEventListener('input', validatePrice);
-        document.getElementById('price-to').addEventListener('input', validatePrice);
-    </script>
 
 </body>
 
