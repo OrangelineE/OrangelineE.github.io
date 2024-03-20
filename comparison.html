@@ -6,6 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CarRole - Vehicle Comparison</title>
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Car Card */
+        .car-card {
+            width: 300px;
+            /* Adjust as needed */
+            margin-right: 20px;
+            /* Adjust as needed */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: inline-block;
+            background-color: white;
+        }
+
+        .car-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .car-details {
+            padding: 20px;
+        }
+
+        .car-details h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .car-details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .car-details strong {
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 16px;
+            color: #007bff;
+            /* Adjust color as needed */
+        }
+
+        /* Comparison Grid */
+        #comparisonGrid {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px;
+            position: relative;
+            /* Added */
+        }
+
+        .add_button {
+            width: 5%;
+            height: 5%;
+            top: 50%;
+            transform: translate(50%, 350%);
+        }
+
+
+        #comparisonGrid::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar for Chrome, Safari, and Opera */
+        }
+
+        #comparisonGrid {
+            -ms-overflow-style: none;
+            /* Hide scrollbar for IE, Edge */
+            scrollbar-width: none;
+            /* Hide scrollbar for Firefox */
+        }
+    </style>
 </head>
 
 <body class="is-preload">
@@ -82,24 +157,24 @@
                 fuelcap: 15.6,
                 Price: 53000,
             },
-            {
-                id: 987654,
-                brand: "Tesla",
-                model: "Model S",
-                bodystyle: "hatchback",
-                Image: "tesla_model_s.png",
-                year: 2022,
-                trim: "Long Range Plus",
-                mpg: "None",
-                horsepower: 670,
-                engine: "Electric",
-                transmission: "Automatic",
-                drivetrain: "All-Wheel Drive",
-                fueltype: "Electric",
-                acc: 2.4,
-                fuelcap: "N/A",
-                Price: 79990,
-            },
+            // {
+            //     id: 987654,
+            //     brand: "Tesla",
+            //     model: "Model S",
+            //     bodystyle: "hatchback",
+            //     Image: "tesla_model_s.png",
+            //     year: 2022,
+            //     trim: "Long Range Plus",
+            //     mpg: "None",
+            //     horsepower: 670,
+            //     engine: "Electric",
+            //     transmission: "Automatic",
+            //     drivetrain: "All-Wheel Drive",
+            //     fueltype: "Electric",
+            //     acc: 2.4,
+            //     fuelcap: "N/A",
+            //     Price: 79990,
+            // },
             {
                 id: 456789,
                 brand: "Toyota",
@@ -118,60 +193,78 @@
                 fuelcap: 16,
                 Price: 34850,
             },
-            {
-                id: 789012,
-                brand: "Chevrolet",
-                model: "Camaro",
-                bodystyle: "coupe",
-                Image: "chevrolet_camaro.png",
-                year: 2022,
-                trim: "SS",
-                mpg: 20,
-                horsepower: 455,
-                engine: "V8",
-                transmission: "10-Speed Automatic",
-                drivetrain: "Rear-Wheel Drive",
-                fueltype: "Gasoline",
-                acc: 4.0,
-                fuelcap: 19,
-                Price: 42995,
-            },
-            {
-                id: 345678,
-                brand: "Ford",
-                model: "Mustang",
-                bodystyle: "convertible",
-                Image: "ford_mustang.png",
-                year: 2023,
-                trim: "GT Premium",
-                mpg: 18,
-                horsepower: 450,
-                engine: "V8",
-                transmission: "6-Speed Manual",
-                drivetrain: "Rear-Wheel Drive",
-                fueltype: "Gasoline",
-                acc: 4.5,
-                fuelcap: 16,
-                Price: 44990,
-            }
+            // {
+            //     id: 789012,
+            //     brand: "Chevrolet",
+            //     model: "Camaro",
+            //     bodystyle: "coupe",
+            //     Image: "chevrolet_camaro.png",
+            //     year: 2022,
+            //     trim: "SS",
+            //     mpg: 20,
+            //     horsepower: 455,
+            //     engine: "V8",
+            //     transmission: "10-Speed Automatic",
+            //     drivetrain: "Rear-Wheel Drive",
+            //     fueltype: "Gasoline",
+            //     acc: 4.0,
+            //     fuelcap: 19,
+            //     Price: 42995,
+            // },
+            // {
+            //     id: 345678,
+            //     brand: "Ford",
+            //     model: "Mustang",
+            //     bodystyle: "convertible",
+            //     Image: "ford_mustang.png",
+            //     year: 2023,
+            //     trim: "GT Premium",
+            //     mpg: 18,
+            //     horsepower: 450,
+            //     engine: "V8",
+            //     transmission: "6-Speed Manual",
+            //     drivetrain: "Rear-Wheel Drive",
+            //     fueltype: "Gasoline",
+            //     acc: 4.5,
+            //     fuelcap: 16,
+            //     Price: 44990,
+            // }
         ];
 
 
         function generateCarCard(car) {
             return `
-                <div class="car-card">
-                    < img src="path_to_images/${car.Image}" alt="${car.brand} ${car.model}">
+            <div class="car-card">
+                <img src="images/${car.Image}" alt="${car.brand} ${car.model}">
+                <div class="car-details">
                     <h3>${car.brand} ${car.model}</h3>
-                    <p><strong>Year:</strong> ${car.year}</p >
-                    <p><strong>Price:</strong> <span class="price">$${car.Price.toLocaleString()}</span></p >
-                    <!-- Add more car details here -->
+                    <p><strong>Price:</strong> <span class="price">$${car.Price.toLocaleString()}</span></p>
+                    <p><strong>Year:</strong> ${car.year}</p>
+                    <p><strong>Bodystyle:</strong> ${car.bodystyle}</p>
+                    <p><strong>Trim:</strong> ${car.trim}</p>
+                    <p><strong>MPG:</strong> ${car.mpg}</p>
+                    <p><strong>Horsepower:</strong> ${car.horsepower}</p>
+                    <p><strong>Engine:</strong> ${car.engine}</p>
+                    <p><strong>Transmission:</strong> ${car.transmission}</p>
+                    <p><strong>Drivetrain:</strong> ${car.drivetrain}</p>
+                    <p><strong>Fuel Type:</strong> ${car.fueltype}</p>
+                    <p><strong>Acceleration:</strong> ${car.acc}s</p>
+                    <p><strong>Fuel Capacity:</strong> ${car.fuelcap} gallons</p>
                 </div>
+            </div>
+            `;
+        }
+
+        function addAddButton() {
+            return `
+                <img src="images/add_button.png" alt="add button" class="add_button">
             `;
         }
 
         window.addEventListener('DOMContentLoaded', (event) => {
             const grid = document.getElementById('comparisonGrid');
             carData.forEach(car => { grid.innerHTML += generateCarCard(car); });
+            grid.innerHTML += addAddButton();
         }); 
     </script>
 </body>
