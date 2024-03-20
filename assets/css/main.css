@@ -293,11 +293,11 @@ a:before {
 
 a:hover {
 	border-bottom-color: transparent;
-	color: #2ebaae !important;
+	color: #ffdd32 !important;
 }
 
 a:hover:before {
-	color: #2ebaae !important;
+	color: #ffdd32 !important;
 }
 
 strong,
@@ -2014,8 +2014,8 @@ input[type="reset"]:hover,
 input[type="button"]:hover,
 button:hover,
 .button:hover {
-	box-shadow: inset 0 0 0 1px #2ebaae;
-	color: #2ebaae !important;
+	box-shadow: inset 0 0 0 1px #ffdd32;
+	color: #ffdd32 !important;
 }
 
 input[type="submit"]:hover:active,
@@ -2196,8 +2196,8 @@ input[type="email"]:focus,
 input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-	border-color: #2ebaae;
-	box-shadow: inset 0 0 0 1px #2ebaae;
+	border-color: #ffdd32;
+	box-shadow: inset 0 0 0 1px #ffdd32;
 }
 
 .select-wrapper {
@@ -2338,8 +2338,8 @@ input[type="radio"]:checked+label:before {
 
 input[type="checkbox"]:focus+label:before,
 input[type="radio"]:focus+label:before {
-	border-color: #2ebaae;
-	box-shadow: 0 0 0 1px #2ebaae;
+	border-color: #ffdd32;
+	box-shadow: 0 0 0 1px #ffdd32;
 }
 
 input[type="radio"]+label:before {
@@ -3731,7 +3731,7 @@ body.single #footer {
 }
 
 #menu .links>li a:hover h3 {
-	color: #2ebaae;
+	color: #ffdd32;
 }
 
 #menu .links>li:first-child {
