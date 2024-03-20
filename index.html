@@ -7,6 +7,53 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		.download-app-section {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 50px 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+        }
+
+        .download-app-section h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000000;
+			color:white
+        }
+
+        .download-app-section img.car-logo {
+            max-width: 200px;
+            height: auto;
+            margin: 25px 0;
+        }
+
+        .download-app-section .app-icons a {
+            margin: 0 10px;
+        }
+
+        .download-app-section .app-icons img {
+            height: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .download-app-section {
+                padding: 30px 0;
+            }
+
+            .download-app-section h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 
 <body class="is-preload">
@@ -209,6 +256,15 @@
 				</ul>
 			</section>
 
+			<div class="download-app-section">
+				<h1>JOIN THE CAR COMMUNITY</h1>
+				<img src="images/carrole.jpg" alt="Carrole Icon" class="car-logo">
+				<h1>DOWNLOAD CARROLE NOW ON THE APP STORE</h1>
+				<div class="app-icons">
+					<a href="link-to-apple-store" target="_blank"><img src="images/apple.png" alt="App Store"></a>
+					<a href="link-to-google-play" target="_blank"><img src="images/google.png" alt="Google Play"></a>
+				</div>
+			</div>
 			<!-- About -->
 			<section class="blurb">
 				<h2>About</h2>
