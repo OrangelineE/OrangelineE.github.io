@@ -14,10 +14,13 @@
         }
 
         #wrapper {
-            max-width: 1200px; /* Or whatever maximum width you prefer */
-            margin: 0 auto; /* Centers the wrapper */
+            max-width: 1200px;
+            /* Or whatever maximum width you prefer */
+            margin: 0 auto;
+            /* Centers the wrapper */
             padding: 20px;
         }
+
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -25,11 +28,14 @@
         }
 
         @media (min-width: 768px) {
-        /* Layout for larger screens */
+
+            /* Layout for larger screens */
             .content-grid {
-                grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+                grid-template-columns: repeat(2, 1fr);
+                /* Two columns on larger screens */
             }
         }
+
         /* Car cards section and container */
         .car-cards-section {
             padding: 20px;
@@ -39,8 +45,10 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            max-width: 1200px; /* Restrict the maximum width of the grid */
-            margin: 0 auto; /* Centering the grid in the section */
+            max-width: 1200px;
+            /* Restrict the maximum width of the grid */
+            margin: 0 auto;
+            /* Centering the grid in the section */
         }
 
         .car-card {
@@ -51,9 +59,12 @@
             flex-direction: column;
             align-items: center;
             padding: 15px;
-            max-width: 100%; /* Maximum width of each card */
-            margin: 0 auto; /* Center each card within the grid column */
+            max-width: 100%;
+            /* Maximum width of each card */
+            margin: 0 auto;
+            /* Center each card within the grid column */
         }
+
         .car-details {
             display: flex;
             flex-direction: column;
@@ -62,11 +73,13 @@
 
         .car-logo {
             margin-bottom: 10px;
-            width: auto; /* Adjust the size as needed */
+            width: auto;
+            /* Adjust the size as needed */
             height: 100px
         }
 
-        .car-name, .car-model {
+        .car-name,
+        .car-model {
             margin: 5px 0;
         }
 
@@ -77,7 +90,8 @@
         }
 
         .view-button {
-            margin-top: auto; /* Pushes the button to the bottom */
+            margin-top: auto;
+            /* Pushes the button to the bottom */
             padding: 1px 1px;
             background-color: #f0ad4e;
             color: white;
@@ -109,24 +123,31 @@
         .pagination a:hover {
             border-color: #f0ad4e;
         }
+
         .post-snippet {
-            background-color: white; /* Set the background color to white */
-            padding: 20px; /* Add padding inside the container */
-            margin-bottom: 20px; /* Add space between post snippets */
-            border-radius: 5px; /* Optional: Adds rounded corners to the container */
+            background-color: white;
+            /* Set the background color to white */
+            padding: 20px;
+            /* Add padding inside the container */
+            margin-bottom: 20px;
+            /* Add space between post snippets */
+            border-radius: 5px;
+            /* Optional: Adds rounded corners to the container */
         }
 
         /* Ensure that the overall posts section has a consistent background if needed */
         .posts-section {
-            background-color: #f5f5f5; /* Light grey background for the whole section */
+            background-color: #f5f5f5;
+            /* Light grey background for the whole section */
             padding: 20px;
-            margin-bottom: 20px; /* Space below the entire section */
+            margin-bottom: 20px;
+            /* Space below the entire section */
         }
 
         .post {
             background: #FFF;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 20px;
             padding: 15px;
         }
@@ -178,11 +199,11 @@
             justify-content: space-between;
         }
 
-        .likes, .comments, .bookmark {
+        .likes,
+        .comments,
+        .bookmark {
             cursor: pointer;
         }
-
-
     </style>
 </head>
 
@@ -190,7 +211,7 @@
 
     <!-- Wrapper -->
     <div id="wrapper">
-          <!-- Header -->
+        <!-- Header -->
         <header id="header">
             <h1><a href="index.html">CarRole</a></h1>
             <nav class="links">
@@ -219,9 +240,9 @@
         <div id="main">
             <div class="content-grid">
                 <section class="vehicles-display-section">
-                    <h2>Featured Vehicles</h2>   
+                    <h2>Featured Vehicles</h2>
                     <section class="car-cards-section">
-                       <!-- Car Cards Container -->
+                        <!-- Car Cards Container -->
                         <div class="car-cards-container">
                             <!-- Repeat this block for each car card -->
                             <div class="car-card">
@@ -288,9 +309,9 @@
                                     <button class="view-button">View</button>
                                 </div>
                             </div>
-                            
+
                         </div>
-                    
+
                         <!-- Pagination -->
                         <div class="pagination">
                             <a href="#" aria-label="Previous page">&laquo;</a>
@@ -302,133 +323,137 @@
                             <a href="#" aria-label="Next page">&raquo;</a>
                         </div>
                     </section>
-    
+
                     <!-- Community Posts Section -->
-                <section class="posts-section">
-                    <div class="post">
-                        <header>
-                            <div class="title">
-                                <h2>Posts</h2>
-                        </header>
-                        <div class="post-snippet">
-                            <div class="post-metadata">
-                                <div class="post">
-                                    <div class="post-header">
-                                        <img src="images/avatar1.png" alt="User Avatar" class="user-avatar">
-                                        <div class="user-info">
-                                            <div class="username">USER12345</div>
-                                            <div class="timestamp">March 6, 2024</div>
+                    <section class="posts-section">
+                        <div class="post">
+                            <header>
+                                <div class="title">
+                                    <h2>Posts</h2>
+                            </header>
+                            <div class="post-snippet">
+                                <div class="post-metadata">
+                                    <div class="post">
+                                        <div class="post-header">
+                                            <img src="images/avatar1.png" alt="User Avatar" class="user-avatar">
+                                            <div class="user-info">
+                                                <div class="username">USER12345</div>
+                                                <div class="timestamp">March 6, 2024</div>
+                                            </div>
+                                            <button class="follow-button">+ Follow</button>
                                         </div>
-                                        <button class="follow-button">+ Follow</button>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
-                                    </div>
-                                    <div class="post-footer">
-                                        <span class="likes">201 likes</span>
-                                        <span class="comments">34 comments</span>
-                                        <span class="bookmark">Bookmark</span>
+                                        <div class="post-content">
+                                            <p>User's detailed experience goes here... It can be their review, story, or
+                                                any feedback related to their driving experience.</p>
+                                        </div>
+                                        <div class="post-footer">
+                                            <span class="likes">201 likes</span>
+                                            <span class="comments">34 comments</span>
+                                            <span class="bookmark">Bookmark</span>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                           
-                        </div>
-                        <div class="post-snippet">
-                            <div class="post-metadata">
-                                <div class="post">
-                                    <div class="post-header">
-                                        <img src="images/avatar2.png" alt="User Avatar" class="user-avatar">
-                                        <div class="user-info">
-                                            <div class="username">USER12345</div>
-                                            <div class="timestamp">March 6, 2024</div>
+                            <div class="post-snippet">
+                                <div class="post-metadata">
+                                    <div class="post">
+                                        <div class="post-header">
+                                            <img src="images/avatar2.png" alt="User Avatar" class="user-avatar">
+                                            <div class="user-info">
+                                                <div class="username">USER12345</div>
+                                                <div class="timestamp">March 6, 2024</div>
+                                            </div>
+                                            <button class="follow-button">+ Follow</button>
                                         </div>
-                                        <button class="follow-button">+ Follow</button>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
-                                    </div>
-                                    <div class="post-footer">
-                                        <span class="likes">201 likes</span>
-                                        <span class="comments">34 comments</span>
-                                        <span class="bookmark">Bookmark</span>
+                                        <div class="post-content">
+                                            <p>User's detailed experience goes here... It can be their review, story, or
+                                                any feedback related to their driving experience.</p>
+                                        </div>
+                                        <div class="post-footer">
+                                            <span class="likes">201 likes</span>
+                                            <span class="comments">34 comments</span>
+                                            <span class="bookmark">Bookmark</span>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                         
-                        </div>
-                        <div class="post-snippet">
-                            <div class="post-metadata">
-                                <div class="post">
-                                    <div class="post-header">
-                                        <img src="images/avatar3.png" alt="User Avatar" class="user-avatar">
-                                        <div class="user-info">
-                                            <div class="username">USER12345</div>
-                                            <div class="timestamp">March 6, 2024</div>
+                            <div class="post-snippet">
+                                <div class="post-metadata">
+                                    <div class="post">
+                                        <div class="post-header">
+                                            <img src="images/avatar3.png" alt="User Avatar" class="user-avatar">
+                                            <div class="user-info">
+                                                <div class="username">USER12345</div>
+                                                <div class="timestamp">March 6, 2024</div>
+                                            </div>
+                                            <button class="follow-button">+ Follow</button>
                                         </div>
-                                        <button class="follow-button">+ Follow</button>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
-                                    </div>
-                                    <div class="post-footer">
-                                        <span class="likes">201 likes</span>
-                                        <span class="comments">34 comments</span>
-                                        <span class="bookmark">Bookmark</span>
+                                        <div class="post-content">
+                                            <p>User's detailed experience goes here... It can be their review, story, or
+                                                any feedback related to their driving experience.</p>
+                                        </div>
+                                        <div class="post-footer">
+                                            <span class="likes">201 likes</span>
+                                            <span class="comments">34 comments</span>
+                                            <span class="bookmark">Bookmark</span>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                          
-                        </div>
-                        <div class="post-snippet">
-                            <div class="post-metadata">
-                                <div class="post">
-                                    <div class="post-header">
-                                        <img src="images/avatar4.png" alt="User Avatar" class="user-avatar">
-                                        <div class="user-info">
-                                            <div class="username">USER12345</div>
-                                            <div class="timestamp">March 6, 2024</div>
+                            <div class="post-snippet">
+                                <div class="post-metadata">
+                                    <div class="post">
+                                        <div class="post-header">
+                                            <img src="images/avatar4.png" alt="User Avatar" class="user-avatar">
+                                            <div class="user-info">
+                                                <div class="username">USER12345</div>
+                                                <div class="timestamp">March 6, 2024</div>
+                                            </div>
+                                            <button class="follow-button">+ Follow</button>
                                         </div>
-                                        <button class="follow-button">+ Follow</button>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>User's detailed experience goes here... It can be their review, story, or any feedback related to their driving experience.</p>
-                                    </div>
-                                    <div class="post-footer">
-                                        <span class="likes">201 likes</span>
-                                        <span class="comments">34 comments</span>
-                                        <span class="bookmark">Bookmark</span>
+                                        <div class="post-content">
+                                            <p>User's detailed experience goes here... It can be their review, story, or
+                                                any feedback related to their driving experience.</p>
+                                        </div>
+                                        <div class="post-footer">
+                                            <span class="likes">201 likes</span>
+                                            <span class="comments">34 comments</span>
+                                            <span class="bookmark">Bookmark</span>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                    
-                        </div>
-                    <!-- Repeat the above block for additional posts -->
-                    <!-- <div class="load-more-container">
+                            <!-- Repeat the above block for additional posts -->
+                            <!-- <div class="load-more-container">
                         <a href="#" class="button large">Load More</a>
                     </div> -->
-                    <div class="pagination">
-                        <a href="#" aria-label="Previous page">&laquo;</a>
-                        <!-- Repeat for each page number you want to show -->
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <!-- ... -->
-                        <a href="#" aria-label="Next page">&raquo;</a>
-                    </div>
+                            <div class="pagination">
+                                <a href="#" aria-label="Previous page">&laquo;</a>
+                                <!-- Repeat for each page number you want to show -->
+                                <a href="#" class="active">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <!-- ... -->
+                                <a href="#" aria-label="Next page">&raquo;</a>
+                            </div>
+                    </section>
+
                 </section>
+            </div>
+            <footer id="footer">
+            </footer>
 
-            </section>
         </div>
-        <footer id="footer">
-        </footer>
 
-    </div>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
 
 
 </body>
