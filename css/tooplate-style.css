@@ -711,6 +711,86 @@ b, strong {
   padding: 0;
 }
 
+/* Pop-up Window Styles */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20%;
+  padding-top: 5%;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  color: #535353;
+  align-self: flex-end;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-flex {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.popup-video {
+  flex: 2;
+  margin: 0 auto;  /* Center the element horizontally */
+  display: flex;  /* Enable flexbox on the container */
+  justify-content: center;  /* Center the content within the container */
+  align-items: center;  /* Center the content vertically */
+}
+
+.popup-text {
+  flex: 3;
+}
+
+#popupTitle {
+  align-self: flex-start; /* Align title to the start */
+  margin-bottom: 10px;
+}
+
+#popupRepo {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#popupRepo:hover {
+  background-color: #0056b3;
+  color: white !important; /* Ensures text color stays white on hover */
+}
+
 /*--------------------------------------------------------------
 # Akills
 --------------------------------------------------------------*/
