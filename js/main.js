@@ -163,6 +163,33 @@
   /**
    * Porfolio isotope and filter
    */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+    }
+
+  });
+
   document.addEventListener('DOMContentLoaded', function() {
     // Get the elements
     var popup = document.getElementById("popup");
@@ -173,6 +200,8 @@
     var popupVideo = document.getElementById("popupVideo");
     var popupRepo = document.getElementById("popupRepo");
 
+    // Ensure the popup is hidden on page load
+    popup.style.display = "none";
 
     // Open the pop-up when any project link is clicked
     document.querySelectorAll('.openPopup').forEach(item => {
@@ -224,6 +253,8 @@
         }
     };
 });
+
+
 
 
 
