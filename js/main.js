@@ -163,32 +163,69 @@
   /**
    * Porfolio isotope and filter
    */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the elements
+    var popup = document.getElementById("popup");
+    var closePopupSpan = document.getElementById("closePopup");
+    var popupTitle = document.getElementById("popupTitle");
+    var popupDescription = document.getElementById("popupDescription");
+    var popupVideoContainer = document.getElementById("popupVideoContainer");
+    var popupVideo = document.getElementById("popupVideo");
+    var popupRepo = document.getElementById("popupRepo");
 
-      let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
+    // Open the pop-up when any project link is clicked
+    document.querySelectorAll('.openPopup').forEach(item => {
+        item.addEventListener('click', event => {
+            event.preventDefault(); // Prevent default link behavior
+            var title = item.getAttribute('data-title');
+            var description = item.getAttribute('data-description');
+            var video = item.getAttribute('data-video');
+            var repo = item.getAttribute('data-repo');
 
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+            // Populate the pop-up content
+            popupTitle.textContent = title;
+            popupDescription.innerHTML = description; // Properly interpret the description HTML
+            popupRepo.href = repo;
+
+            // Display the video if available
+            if (video) {
+                popupVideo.src = video;
+                popupVideoContainer.style.display = "block";
+            } else {
+                popupVideo.src = "";
+                popupVideoContainer.style.display = "none";
+            }
+
+            // Show the pop-up
+            popup.style.display = "block";
         });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
+    });
+
+    // Close the pop-up when the close button (x) is clicked
+    closePopupSpan.onclick = function() {
+        popup.style.display = "none";
+        popupVideo.src = ""; // Stop the video when the pop-up is closed
     }
 
-  });
+    // Close the pop-up when clicking outside the pop-up content
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = "none";
+            popupVideo.src = ""; // Stop the video when the pop-up is closed
+        }
+    }
+
+    // Ensure the popup is hidden when navigating back to the page
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            popup.style.display = "none";
+            popupVideo.src = ""; // Stop the video when the pop-up is closed
+        }
+    };
+});
+
+
 
   /**
    * Initiate portfolio lightbox 
